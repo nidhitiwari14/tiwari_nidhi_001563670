@@ -5,17 +5,29 @@
  */
 package ui;
 
+import model.ProfileInfo;
+
 /**
  *
  * @author nidhitiwari
  */
 public class MainJframe extends javax.swing.JFrame {
+    
+    /**
+     * Creates variable ProfileInfo Class
+     */
+    ProfileInfo profileInfo;
 
     /**
      * Creates new form MainJframe
      */
     public MainJframe() {
         initComponents();
+        
+    /**
+     * Creates instance of Product Class
+    */
+        profileInfo = new ProfileInfo();
     }
 
     /**
@@ -101,10 +113,14 @@ public class MainJframe extends javax.swing.JFrame {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
+        CreateJPanel createPanel = new CreateJPanel(profileInfo);
+        splitPane.setRightComponent(createPanel);
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
         // TODO add your handling code here:
+        ViewJPanel viewPanel = new ViewJPanel(profileInfo);
+        splitPane.setRightComponent(viewPanel);
     }//GEN-LAST:event_btnViewActionPerformed
 
     /**

@@ -5,7 +5,11 @@
  */
 package model;
 import java. util. Date;
-
+import java.awt.*;
+import java.awt.image.*;
+import java.io.*;
+import javax.imageio.*;
+import javax.swing.*;
 /**
  *
  * @author nidhitiwari
@@ -15,21 +19,60 @@ public class ProfileInfo {
     private String name;
     private String geographicData;
     private Date dateOfBirth;
-    private int phoneNumber;
-    private String faxNumber;
+    private Long phoneNumber;
+    private Long faxNumber;
     private String emailAddress;
     private String ssnNumber;
     private String medicalRecordNumber;
     private String healthPlanBeneficiaryNumber;
-    private String[] bankAccountNums;
-    private String licenseNum;
+    private String bankAccountNums;
     private String licensePlate;
     private String licensePlateNum;
     private String deviceSerialNum;
     private String linkedinProfile;
     private String internetProtocolAddress;
-    private long fingerPrint;
-    private long photograph; 
+    private Long fingerPrint;
+    private String pathForImage;
+
+    public String getPathForImage() {
+        return pathForImage;
+    }
+
+    public void setPathForImage(String pathForImage) {
+        this.pathForImage = pathForImage;
+    }
+    
+    public void getImage() {
+        JFrame editorFrame = new JFrame("Image Demo");
+        BufferedImage image = null;
+        try
+        {
+        image = ImageIO.read(new File(this.pathForImage));
+        }
+        catch (Exception e)
+        {
+        e.printStackTrace();
+        System.exit(1);
+        }
+        ImageIcon imageIcon = new ImageIcon(fitimage(image, 500, 500));
+        JLabel jLabel = new JLabel();
+        jLabel.setIcon(imageIcon);
+        editorFrame.getContentPane().add(jLabel, BorderLayout.CENTER);
+
+        editorFrame.pack();
+        editorFrame.setLocationRelativeTo(null);
+        editorFrame.setVisible(true);
+    }
+    
+    private Image fitimage(Image img , int w , int h)
+        {
+            BufferedImage resizedimage = new BufferedImage(w,h,BufferedImage.TYPE_INT_RGB);
+            Graphics2D g2 = resizedimage.createGraphics();
+            g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+            g2.drawImage(img, 0, 0,w,h,null);
+            g2.dispose();
+            return resizedimage;
+        }
 
     public String getName() {
         return name;
@@ -55,19 +98,19 @@ public class ProfileInfo {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public int getPhoneNumber() {
+    public Long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(Long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getFaxNumber() {
+    public Long getFaxNumber() {
         return faxNumber;
     }
 
-    public void setFaxNumber(String faxNumber) {
+    public void setFaxNumber(Long faxNumber) {
         this.faxNumber = faxNumber;
     }
 
@@ -103,20 +146,12 @@ public class ProfileInfo {
         this.healthPlanBeneficiaryNumber = healthPlanBeneficiaryNumber;
     }
 
-    public String[] getBankAccountNums() {
+    public String getBankAccountNums() {
         return bankAccountNums;
     }
 
-    public void setBankAccountNums(String[] bankAccountNums) {
+    public void setBankAccountNums(String bankAccountNums) {
         this.bankAccountNums = bankAccountNums;
-    }
-
-    public String getLicenseNum() {
-        return licenseNum;
-    }
-
-    public void setLicenseNum(String licenseNum) {
-        this.licenseNum = licenseNum;
     }
 
     public String getLicensePlate() {
@@ -166,14 +201,4 @@ public class ProfileInfo {
     public void setFingerPrint(long fingerPrint) {
         this.fingerPrint = fingerPrint;
     }
-
-    public long getPhotograph() {
-        return photograph;
-    }
-
-    public void setPhotograph(long photograph) {
-        this.photograph = photograph;
-    }
-    
-    
 }
