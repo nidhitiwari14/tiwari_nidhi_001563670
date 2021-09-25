@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package model;
-import java. util. Date;
+import java. util.Date;
 import java.awt.*;
 import java.awt.image.*;
 import java.io.*;
@@ -17,7 +17,13 @@ import javax.swing.*;
 public class ProfileInfo {
     
     private String name;
+    private String middleName;
+    private String lastName;
     private String geographicData;
+    private String city;
+    private String state;
+    private String zip;
+    private String country;
     private Date dateOfBirth;
     private Long phoneNumber;
     private Long faxNumber;
@@ -25,7 +31,7 @@ public class ProfileInfo {
     private String ssnNumber;
     private String medicalRecordNumber;
     private String healthPlanBeneficiaryNumber;
-    private String bankAccountNums;
+    private Long bankAccountNums;
     private String licensePlate;
     private String licensePlateNum;
     private String deviceSerialNum;
@@ -33,6 +39,55 @@ public class ProfileInfo {
     private String internetProtocolAddress;
     private Long fingerPrint;
     private String pathForImage;
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+    
+    
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     public String getPathForImage() {
         return pathForImage;
@@ -146,11 +201,11 @@ public class ProfileInfo {
         this.healthPlanBeneficiaryNumber = healthPlanBeneficiaryNumber;
     }
 
-    public String getBankAccountNums() {
+    public Long getBankAccountNums() {
         return bankAccountNums;
     }
 
-    public void setBankAccountNums(String bankAccountNums) {
+    public void setBankAccountNums(Long bankAccountNums) {
         this.bankAccountNums = bankAccountNums;
     }
 

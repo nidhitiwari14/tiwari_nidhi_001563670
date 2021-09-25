@@ -32,7 +32,6 @@
                                   <Component id="lblLinkedin" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblIPAddr" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblFingerprint" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblImage" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -48,38 +47,52 @@
                                   <Component id="lblName" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblBankAccountNum" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblHealthPlanBenNum" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCity" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblMiddleName" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblLastName" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="txtHealthPlanBenNum" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
-                                  <Component id="txtMedicalRecNum" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
-                                  <Component id="txtFaxNum" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
-                                  <Component id="txtName" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
-                                  <Component id="txtGeographicalData" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
-                                  <Component id="txtDateOfBirth" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
-                                  <Component id="txtContactNumber" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
-                                  <Component id="txtEmailAddr" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
-                                  <Component id="txtSSNNum" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
-                                  <Component id="txtBankAccountNum" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
-                                  <Component id="txtLicensePlateNum" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
-                                  <Component id="txtDeviceSerialNum" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
-                                  <Component id="txtLinkedin" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
-                                  <Component id="txtIPAddr" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="txtHealthPlanBenNum" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
+                          <Component id="txtMedicalRecNum" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
+                          <Component id="txtFaxNum" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
+                          <Component id="txtName" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
+                          <Component id="txtDateOfBirth" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
+                          <Component id="txtContactNumber" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
+                          <Component id="txtEmailAddr" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
+                          <Component id="txtSSNNum" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
+                          <Component id="txtBankAccountNum" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
+                          <Component id="txtLicensePlateNum" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
+                          <Component id="txtDeviceSerialNum" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
+                          <Component id="txtLinkedin" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
+                          <Component id="txtIPAddr" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnImageRetrieval" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jButton1" min="-2" pref="178" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblImage" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btnImageRetrieval" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="txtCity" min="-2" pref="74" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="lblStateCode" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txtStateCode" min="-2" pref="74" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="lblZip" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="txtZip" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="txtGeographicalData" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="txtMiddleName" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
+                          <Component id="txtLastName" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="57" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="51" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -97,20 +110,35 @@
                   <Component id="lblName" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtMiddleName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblMiddleName" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtLastName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblLastName" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtGeographicalData" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblGeographicalData" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                              <Component id="txtDateOfBirth" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblDateOfBirth" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtGeographicalData" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblGeographicalData" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblCity" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCity" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblStateCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtStateCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblZip" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtZip" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtDateOfBirth" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblDateOfBirth" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -134,7 +162,6 @@
                       <Component id="lblSSNNum" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblMedicalRecNum" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtMedicalRecNum" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -173,13 +200,10 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblFingerprint" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblImage" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnImageRetrieval" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="82" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -201,7 +225,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblGeographicalData">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Address:"/>
+        <Property name="text" type="java.lang.String" value="Street Address:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblDateOfBirth">
@@ -347,6 +371,47 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="View FingerPrint Image"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblCity">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="City:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtCity">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblStateCode">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="State Code:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtStateCode">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblZip">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Zip:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtZip">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblMiddleName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Middle Name:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtMiddleName">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMiddleNameActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblLastName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Last Name:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtLastName">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtLastNameActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
