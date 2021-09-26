@@ -94,10 +94,7 @@
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="lblAddressValidation" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="lblAddressValidation" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
@@ -208,7 +205,7 @@
                   <Component id="txtStateCode" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblZip" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtZip" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblAddressValidation" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAddressValidation" alignment="1" min="-2" pref="16" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -604,6 +601,9 @@
     <Component class="javax.swing.JLabel" name="lblMiddleNameValidation">
     </Component>
     <Component class="javax.swing.JLabel" name="lblAddressValidation">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="2"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblDateValidation">
     </Component>
