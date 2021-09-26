@@ -22,7 +22,7 @@ public class ProfileInfo {
     private String geographicData;
     private String city;
     private String state;
-    private String zip;
+    private Long zip;
     private String country;
     private String dateOfBirth;
     private Long phoneNumber;
@@ -55,11 +55,11 @@ public class ProfileInfo {
         this.state = state;
     }
 
-    public String getZip() {
+    public Long getZip() {
         return zip;
     }
 
-    public void setZip(String zip) {
+    public void setZip(Long zip) {
         this.zip = zip;
     }
 

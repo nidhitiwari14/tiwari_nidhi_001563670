@@ -436,7 +436,11 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtLastName.setText(profileInfo.getLastName());
         txtCity.setText(profileInfo.getCity());
         txtStateCode.setText(profileInfo.getState());
-        txtZip.setText(profileInfo.getZip());
+        try {
+           txtZip.setText(Long.toString(profileInfo.getZip())); 
+        } catch(Exception e) {
+           txtZip.setText(""); 
+        }
         txtSSNNum.setText(profileInfo.getSsnNumber());
         try {
            txtBankAccountNum.setText(Long.toString(profileInfo.getBankAccountNums())); 

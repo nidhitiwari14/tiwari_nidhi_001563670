@@ -95,10 +95,12 @@ public class CreateJPanel extends javax.swing.JPanel {
             errorMessage = "Fax is not valid";
             lblFaxNumValidation.setText(errorMessage);
         }
-        if (!txtSSNNum.getText().isEmpty() && txtSSNNum.getText().toString().length() != 10) {
-            isFormValid = false;
-            errorMessage = "SSN Number is not valid";
-            lblSSNNumValidation.setText(errorMessage);
+        if (!txtSSNNum.getText().isEmpty()) {
+            if (!Pattern.matches("^(?!000|666)[0-8][0-9]{2}-(?!00)[0-9]{2}-(?!0000)[0-9]{4}$", txtSSNNum.getText())) {
+                isFormValid = false;
+                errorMessage = "SSN Number is not valid";
+                lblSSNNumValidation.setText(errorMessage);
+            }
         }
         if (!txtDateOfBirth.getText().isEmpty()) {
             SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
@@ -122,7 +124,10 @@ public class CreateJPanel extends javax.swing.JPanel {
             profileInfo.setGeographicData(txtGeographicalData.getText());
             profileInfo.setCity(txtCity.getText());
             profileInfo.setState(txtStateCode.getText());
-            profileInfo.setZip(txtZip.getText());
+            try {
+                profileInfo.setZip(Long.parseLong(txtZip.getText()));
+            } catch(Exception e) {
+            }
             profileInfo.setDateOfBirth(txtDateOfBirth.getText());
             try {
                 profileInfo.setPhoneNumber(Long.parseLong(txtContactNumber.getText()));
@@ -421,7 +426,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         lblFaxNumFormat.setText("Numbers Only and Max Limit is 10 Digit");
 
         lblSSNNumFormat.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
-        lblSSNNumFormat.setText("Numbers Only and Max limit is 10 digit");
+        lblSSNNumFormat.setText("Format XXX-XX-XXXX");
 
         lblBankAccNumFormat.setFont(new java.awt.Font("Lucida Grande", 0, 8)); // NOI18N
         lblBankAccNumFormat.setText("Numbers Only");
@@ -461,7 +466,7 @@ public class CreateJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(269, 269, 269)
-                .addComponent(lblMandatoryInstruction, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblMandatoryInstruction, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addGap(244, 244, 244))
             .addGroup(layout.createSequentialGroup()
                 .addGap(6, 6, 6)
@@ -628,7 +633,7 @@ public class CreateJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblContactNum)
-                    .addComponent(lblContactNumValidation, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblContactNumValidation))
                 .addGap(3, 3, 3)
                 .addComponent(lblContactFormat, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
