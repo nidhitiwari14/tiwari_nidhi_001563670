@@ -5,16 +5,11 @@
  */
 package ui;
 
-import java.text.ParseException;
-import java.util.Arrays;
 import javax.swing.JOptionPane;
 import model.ProfileInfo;
 import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.text.DateFormat;
-import java.text.Format;
-import java.util.Date;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /**
  *
  * @author nidhitiwari
@@ -45,27 +40,27 @@ public class CreateJPanel extends javax.swing.JPanel {
             isFormValid = false;
             errorFieldEmpty = "Contact Number";
         } 
-        if (txtName.getText().isEmpty()) {
+        else if (txtName.getText().isEmpty()) {
             isFormValid = false;
             errorFieldEmpty = "First Name";
         }
-        if (txtLastName.getText().isEmpty()) {
+        else if (txtLastName.getText().isEmpty()) {
             isFormValid = false;
             errorFieldEmpty = "Last Name";
         }
-        if (txtGeographicalData.getText().isEmpty()) {
+        else if (txtGeographicalData.getText().isEmpty()) {
             isFormValid = false;
             errorFieldEmpty = "Address";
         }
-        if (txtCity.getText().isEmpty()) {
+        else if (txtCity.getText().isEmpty()) {
             isFormValid = false;
             errorFieldEmpty = "City";
         }
-        if (txtStateCode.getText().isEmpty()) {
+        else if (txtStateCode.getText().isEmpty()) {
             isFormValid = false;
             errorFieldEmpty = "State";
         }
-        if (txtZip.getText().isEmpty()) {
+        else if (txtZip.getText().isEmpty()) {
             isFormValid = false;
             errorFieldEmpty = "Zip";
         }
@@ -77,51 +72,49 @@ public class CreateJPanel extends javax.swing.JPanel {
     
     public void onSaveButtonClickValidation() {
         validateForm();
-        if (!(txtContactNumber.getText().isEmpty()) && txtContactNumber.getText().toString().length() != 9) {
+        if (!(txtContactNumber.getText().isEmpty()) && txtContactNumber.getText().toString().length() != 10) {
             isFormValid = false;
             errorMessage = "Phone is not valid";
             lblContactNumValidation.setText(errorMessage);
         }
-        if (!txtFaxNum.getText().isEmpty() && txtFaxNum.getText().toString().length() != 9) {
+        if (!txtFaxNum.getText().isEmpty() && txtFaxNum.getText().toString().length() != 10) {
             isFormValid = false;
             errorMessage = "Fax is not valid";
             lblFaxNumValidation.setText(errorMessage);
         }
-        if (!txtSSNNum.getText().isEmpty() && txtSSNNum.getText().toString().length() != 9) {
+        if (!txtSSNNum.getText().isEmpty() && txtSSNNum.getText().toString().length() != 10) {
             isFormValid = false;
             errorMessage = "SSN Number is not valid";
             lblSSNNumValidation.setText(errorMessage);
         }
         if (!txtDateOfBirth.getText().isEmpty()) {
-            isFormValid = false;
             SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-            formatter.setLenient(false);
             try
                 {
                     formatter.parse(txtDateOfBirth.getText());
+                    lblDateValidation.setText("");
                 }
 	    
                 catch (Exception e)
                 {
-                    lblDateValidation.setText("Invalid Format. Should be in MM/dd/yyyy");
-
+                    lblDateValidation.setText("Date Format is Invalid");
+                    isFormValid = false;
                 }
         }
         if (!txtEmailAddr.getText().isEmpty()) {
             isFormValid = false;
-            String emailAddress = "^[\\w-\\.+]*[\\w-\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
-            if (txtEmailAddr.getText().matches(emailAddress))
+            String emailAddressVAlidation = "^\\w+([.-]\\w+)*@\\w+([.-]\\w+)*\\.\\w{2,3}$";
+            if (txtEmailAddr.getText().matches(emailAddressVAlidation))
             {
                 lblEmailAddressValidation.setText("");
             }
             else
             {
-                lblEmailAddressValidation.setText("Email Format is Invalid");
+                lblEmailAddressValidation.setText("Email Address Format is Invalid");
             }
         }
-        else {
+        if (isFormValid == true) {
             isFormValid = true;
-            SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
             profileInfo.setName(txtName.getText());
             profileInfo.setMiddleName(txtMiddleName.getText());
             profileInfo.setLastName(txtLastName.getText());
@@ -129,11 +122,7 @@ public class CreateJPanel extends javax.swing.JPanel {
             profileInfo.setCity(txtCity.getText());
             profileInfo.setState(txtStateCode.getText());
             profileInfo.setZip(txtZip.getText());
-            try {
-                profileInfo.setDateOfBirth(formatter.parse(txtDateOfBirth.getText()));
-            } catch (ParseException ex) {
-                
-            }
+            profileInfo.setDateOfBirth(txtDateOfBirth.getText());
             try {
                 profileInfo.setPhoneNumber(Long.parseLong(txtContactNumber.getText()));
             } catch(Exception e) {
@@ -200,7 +189,6 @@ public class CreateJPanel extends javax.swing.JPanel {
         txtLinkedin = new javax.swing.JTextField();
         lblIPAddr = new javax.swing.JLabel();
         txtIPAddr = new javax.swing.JTextField();
-        lblFingerprint = new javax.swing.JLabel();
         lblImage = new javax.swing.JLabel();
         lblFaxNumValidation = new javax.swing.JLabel();
         lblContactNumValidation = new javax.swing.JLabel();
@@ -208,7 +196,6 @@ public class CreateJPanel extends javax.swing.JPanel {
         lblNameValidation = new javax.swing.JLabel();
         lblSSNNumValidation = new javax.swing.JLabel();
         btnUploadImage = new javax.swing.JButton();
-        btnUploadFingerPrint = new javax.swing.JButton();
         lblMandatoryInstruction = new javax.swing.JLabel();
         lblMiddleName = new javax.swing.JLabel();
         txtMiddleName = new javax.swing.JTextField();
@@ -232,6 +219,7 @@ public class CreateJPanel extends javax.swing.JPanel {
         lblDateValidation = new javax.swing.JLabel();
         lblBankAccountNumValidation = new javax.swing.JLabel();
         lblEmailAddressValidation = new javax.swing.JLabel();
+        lblImageConfirmation = new javax.swing.JLabel();
 
         jLabel6.setText("jLabel6");
 
@@ -378,21 +366,12 @@ public class CreateJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblFingerprint.setText("Fingerprint Image:");
-
         lblImage.setText("Profile Image*:");
 
         btnUploadImage.setText("Upload Image");
         btnUploadImage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUploadImageActionPerformed(evt);
-            }
-        });
-
-        btnUploadFingerPrint.setText("Upload Image");
-        btnUploadFingerPrint.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUploadFingerPrintActionPerformed(evt);
             }
         });
 
@@ -487,13 +466,6 @@ public class CreateJPanel extends javax.swing.JPanel {
                         .addGap(269, 269, 269)
                         .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(280, 280, 280)
-                        .addComponent(btnUploadFingerPrint)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblImage)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnUploadImage, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblGeographicalData1)
@@ -502,7 +474,6 @@ public class CreateJPanel extends javax.swing.JPanel {
                             .addComponent(lblDeviceSerialNum, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblLinkedin)
                             .addComponent(lblIPAddr)
-                            .addComponent(lblFingerprint)
                             .addComponent(lblMedicalRecNum)
                             .addComponent(lblEmailAddr)
                             .addComponent(lblFaxNum)
@@ -516,7 +487,8 @@ public class CreateJPanel extends javax.swing.JPanel {
                                 .addComponent(lblMiddleName)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(6, 6, 6)
-                                    .addComponent(lblLastName))))
+                                    .addComponent(lblLastName)))
+                            .addComponent(lblImage))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -589,8 +561,12 @@ public class CreateJPanel extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(txtEmailAddr, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
                                         .addGap(27, 27, 27)
-                                        .addComponent(lblEmailAddressValidation)))
-                                .addGap(0, 142, Short.MAX_VALUE)))))
+                                        .addComponent(lblEmailAddressValidation))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnUploadImage, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(67, 67, 67)
+                                        .addComponent(lblImageConfirmation)))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
 
@@ -701,10 +677,9 @@ public class CreateJPanel extends javax.swing.JPanel {
                     .addComponent(txtIPAddr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFingerprint)
-                    .addComponent(btnUploadFingerPrint)
                     .addComponent(lblImage)
-                    .addComponent(btnUploadImage))
+                    .addComponent(btnUploadImage)
+                    .addComponent(lblImageConfirmation))
                 .addGap(18, 18, 18)
                 .addComponent(btnSave)
                 .addGap(68, 68, 68))
@@ -867,14 +842,14 @@ public class CreateJPanel extends javax.swing.JPanel {
     private void btnUploadImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUploadImageActionPerformed
       // TODO add your handling code here:
       BiometricDetails BioMetricImage = new BiometricDetails();
-      String Path = BioMetricImage.imageload();        
-      
-      profileInfo.setPathForImage(Path);
+      String profileImagePath = BioMetricImage.loadProfileImage();        
+      try {
+          profileInfo.setPathForImage(profileImagePath);
+          lblImageConfirmation.setText("Image is Uploaded");
+      } catch(Exception e) {
+          lblImageConfirmation.setText("Error occurred while uploading Image");
+      }
     }//GEN-LAST:event_btnUploadImageActionPerformed
-
-    private void btnUploadFingerPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUploadFingerPrintActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnUploadFingerPrintActionPerformed
 
     private void txtMiddleNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMiddleNameActionPerformed
         // TODO add your handling code here:
@@ -1018,7 +993,6 @@ public class CreateJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSave;
-    private javax.swing.JButton btnUploadFingerPrint;
     private javax.swing.JButton btnUploadImage;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel lblAddressValidation;
@@ -1038,12 +1012,12 @@ public class CreateJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblFaxNum;
     private javax.swing.JLabel lblFaxNumFormat;
     private javax.swing.JLabel lblFaxNumValidation;
-    private javax.swing.JLabel lblFingerprint;
     private javax.swing.JLabel lblGeographicalData;
     private javax.swing.JLabel lblGeographicalData1;
     private javax.swing.JLabel lblHealthPlanBenNum;
     private javax.swing.JLabel lblIPAddr;
     private javax.swing.JLabel lblImage;
+    private javax.swing.JLabel lblImageConfirmation;
     private javax.swing.JLabel lblLastName;
     private javax.swing.JLabel lblLastNameValidation;
     private javax.swing.JLabel lblLicensePlateNum;

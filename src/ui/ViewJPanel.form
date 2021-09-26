@@ -31,7 +31,6 @@
                                   <Component id="lblDeviceSerialNum" alignment="1" min="-2" pref="139" max="-2" attributes="0"/>
                                   <Component id="lblLinkedin" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblIPAddr" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblFingerprint" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -50,6 +49,7 @@
                                   <Component id="lblCity" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblMiddleName" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblLastName" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblImage" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -68,13 +68,6 @@
                           <Component id="txtDeviceSerialNum" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
                           <Component id="txtLinkedin" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
                           <Component id="txtIPAddr" linkSize="1" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jButton1" min="-2" pref="178" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="lblImage" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btnImageRetrieval" min="-2" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="txtCity" min="-2" pref="74" max="-2" attributes="0"/>
@@ -91,8 +84,9 @@
                           </Group>
                           <Component id="txtMiddleName" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
                           <Component id="txtLastName" alignment="0" min="-2" pref="447" max="-2" attributes="0"/>
+                          <Component id="btnImageRetrieval" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="51" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="57" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -198,8 +192,6 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblFingerprint" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="lblImage" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnImageRetrieval" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -349,11 +341,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIPAddrActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="lblFingerprint">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Fingerprint Image:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="lblImage">
       <Properties>
         <Property name="text" type="java.lang.String" value="Profile Image:"/>
@@ -366,11 +353,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnImageRetrievalActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="View FingerPrint Image"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblCity">
       <Properties>

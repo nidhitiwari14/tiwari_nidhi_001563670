@@ -24,7 +24,7 @@ public class ProfileInfo {
     private String state;
     private String zip;
     private String country;
-    private Date dateOfBirth;
+    private String dateOfBirth;
     private Long phoneNumber;
     private Long faxNumber;
     private String emailAddress;
@@ -37,7 +37,6 @@ public class ProfileInfo {
     private String deviceSerialNum;
     private String linkedinProfile;
     private String internetProtocolAddress;
-    private Long fingerPrint;
     private String pathForImage;
 
     public String getCity() {
@@ -145,11 +144,11 @@ public class ProfileInfo {
         this.geographicData = geographicData;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -247,13 +246,5 @@ public class ProfileInfo {
 
     public void setInternetProtocolAddress(String internetProtocolAddress) {
         this.internetProtocolAddress = internetProtocolAddress;
-    }
-
-    public long getFingerPrint() {
-        return fingerPrint;
-    }
-
-    public void setFingerPrint(long fingerPrint) {
-        this.fingerPrint = fingerPrint;
     }
 }

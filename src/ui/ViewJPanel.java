@@ -70,10 +70,8 @@ public class ViewJPanel extends javax.swing.JPanel {
         txtLinkedin = new javax.swing.JTextField();
         lblIPAddr = new javax.swing.JLabel();
         txtIPAddr = new javax.swing.JTextField();
-        lblFingerprint = new javax.swing.JLabel();
         lblImage = new javax.swing.JLabel();
         btnImageRetrieval = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         lblCity = new javax.swing.JLabel();
         txtCity = new javax.swing.JTextField();
         lblStateCode = new javax.swing.JLabel();
@@ -183,8 +181,6 @@ public class ViewJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblFingerprint.setText("Fingerprint Image:");
-
         lblImage.setText("Profile Image:");
 
         btnImageRetrieval.setText("View Profile Image");
@@ -193,8 +189,6 @@ public class ViewJPanel extends javax.swing.JPanel {
                 btnImageRetrievalActionPerformed(evt);
             }
         });
-
-        jButton1.setText("View FingerPrint Image");
 
         lblCity.setText("City:");
 
@@ -235,8 +229,7 @@ public class ViewJPanel extends javax.swing.JPanel {
                                     .addComponent(lblLicensePlateNum, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lblDeviceSerialNum, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblLinkedin, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblIPAddr, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblFingerprint, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                    .addComponent(lblIPAddr, javax.swing.GroupLayout.Alignment.TRAILING)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,7 +245,8 @@ public class ViewJPanel extends javax.swing.JPanel {
                                     .addComponent(lblHealthPlanBenNum, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lblCity, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(lblMiddleName, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblLastName, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                    .addComponent(lblLastName, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblImage, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtHealthPlanBenNum, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -268,12 +262,6 @@ public class ViewJPanel extends javax.swing.JPanel {
                             .addComponent(txtDeviceSerialNum, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtLinkedin, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtIPAddr, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblImage)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnImageRetrieval))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -287,8 +275,9 @@ public class ViewJPanel extends javax.swing.JPanel {
                                     .addComponent(txtZip))
                                 .addComponent(txtGeographicalData, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtMiddleName, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 51, Short.MAX_VALUE)))
+                            .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnImageRetrieval))
+                        .addGap(0, 57, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -374,8 +363,6 @@ public class ViewJPanel extends javax.swing.JPanel {
                     .addComponent(lblIPAddr))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFingerprint)
-                    .addComponent(jButton1)
                     .addComponent(lblImage)
                     .addComponent(btnImageRetrieval))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -465,7 +452,7 @@ public class ViewJPanel extends javax.swing.JPanel {
             txtDateOfBirth.setText("");
         }
         else {
-            txtDateOfBirth.setText(String.valueOf(profileInfo.getDateOfBirth()));
+            txtDateOfBirth.setText(profileInfo.getDateOfBirth());
         }
         txtDeviceSerialNum.setText(profileInfo.getDeviceSerialNum());
         txtEmailAddr.setText(profileInfo.getEmailAddress());
@@ -485,7 +472,6 @@ public class ViewJPanel extends javax.swing.JPanel {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnImageRetrieval;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblBankAccountNum;
     private javax.swing.JLabel lblCity;
     private javax.swing.JLabel lblContactNum;
@@ -493,7 +479,6 @@ public class ViewJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblDeviceSerialNum;
     private javax.swing.JLabel lblEmailAddr;
     private javax.swing.JLabel lblFaxNum;
-    private javax.swing.JLabel lblFingerprint;
     private javax.swing.JLabel lblGeographicalData;
     private javax.swing.JLabel lblHealthPlanBenNum;
     private javax.swing.JLabel lblIPAddr;

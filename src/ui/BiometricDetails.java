@@ -14,10 +14,9 @@ import javax.swing.*;
  * @author nidhitiwari
  */
 public class BiometricDetails {
-      String imageload()  
+    String loadProfileImage()
   {
-    JFrame editorFrame = new JFrame("Image Demo");
-    //  editorFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    JFrame editorFrame = new JFrame("Profile Image Load");
     FileDialog fd = new FileDialog(editorFrame, "Open", FileDialog.LOAD);  
     fd.show();
     String path = (fd.getDirectory() + fd.getFile());  
