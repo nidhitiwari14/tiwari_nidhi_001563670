@@ -72,7 +72,7 @@ public class CreateJPanel extends javax.swing.JPanel {
     
     public void onSaveButtonClickValidation() {
         validateForm();
-        if (!(txtContactNumber.getText().isEmpty()) && txtContactNumber.getText().toString().length() != 10) {
+        if (txtContactNumber.getText().length() != 10) {
             isFormValid = false;
             errorMessage = "Phone is not valid";
             lblContactNumValidation.setText(errorMessage);
@@ -101,18 +101,19 @@ public class CreateJPanel extends javax.swing.JPanel {
                     isFormValid = false;
                 }
         }
-        if (!txtEmailAddr.getText().isEmpty()) {
-            isFormValid = false;
-            String emailAddressVAlidation = "^\\w+([.-]\\w+)*@\\w+([.-]\\w+)*\\.\\w{2,3}$";
-            if (txtEmailAddr.getText().matches(emailAddressVAlidation))
-            {
-                lblEmailAddressValidation.setText("");
-            }
-            else
-            {
-                lblEmailAddressValidation.setText("Email Address Format is Invalid");
-            }
-        }
+        //Email VAlidation Giving performance issue
+//        if (!txtEmailAddr.getText().isEmpty()) {
+//            isFormValid = false;
+//            String emailAddressVAlidation = "^[\\w-\\.+]*[\\w-\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+//            if (txtEmailAddr.getText().matches(emailAddressVAlidation))
+//            {
+//                lblEmailAddressValidation.setText("");
+//            }
+//            else
+//            {
+//                lblEmailAddressValidation.setText("Email Address Format is Invalid");
+//            }
+//        }
         if (isFormValid == true) {
             isFormValid = true;
             profileInfo.setName(txtName.getText());
