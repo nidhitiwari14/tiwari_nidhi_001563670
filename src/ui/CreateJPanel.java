@@ -64,6 +64,10 @@ public class CreateJPanel extends javax.swing.JPanel {
             isFormValid = false;
             errorFieldEmpty = "Zip";
         }
+        else if (txtEmailAddr.getText().isEmpty()) {
+            isFormValid = false;
+            errorFieldEmpty = "Email";
+        }
         else {
             isFormValid = true;
             btnSave.setEnabled(true);
@@ -72,6 +76,15 @@ public class CreateJPanel extends javax.swing.JPanel {
     
     public void onSaveButtonClickValidation() {
         validateForm();
+        String emailAddressVAlidation = "^[\\w-\\.+]*[\\w-\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+            if (txtEmailAddr.getText().matches(emailAddressVAlidation))
+            {
+                lblEmailAddressValidation.setText("");
+            }
+            else
+            {
+                lblEmailAddressValidation.setText("Email Address Format is Invalid");
+            }
         if (txtContactNumber.getText().length() != 10) {
             isFormValid = false;
             errorMessage = "Phone is not valid";
@@ -101,19 +114,6 @@ public class CreateJPanel extends javax.swing.JPanel {
                     isFormValid = false;
                 }
         }
-        //Email VAlidation Giving performance issue
-//        if (!txtEmailAddr.getText().isEmpty()) {
-//            isFormValid = false;
-//            String emailAddressVAlidation = "^[\\w-\\.+]*[\\w-\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
-//            if (txtEmailAddr.getText().matches(emailAddressVAlidation))
-//            {
-//                lblEmailAddressValidation.setText("");
-//            }
-//            else
-//            {
-//                lblEmailAddressValidation.setText("Email Address Format is Invalid");
-//            }
-//        }
         if (isFormValid == true) {
             isFormValid = true;
             profileInfo.setName(txtName.getText());
@@ -285,11 +285,16 @@ public class CreateJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblEmailAddr.setText("Email Address:");
+        lblEmailAddr.setText("Email Address*:");
 
         txtEmailAddr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailAddrActionPerformed(evt);
+            }
+        });
+        txtEmailAddr.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtEmailAddrKeyPressed(evt);
             }
         });
 
@@ -735,17 +740,6 @@ public class CreateJPanel extends javax.swing.JPanel {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
         onSaveButtonClickValidation();
-//        if (isFormValid == false) {
-//            if (errorFieldEmpty != "Form") {
-//                JOptionPane.showMessageDialog(this, errorFieldEmpty + " is mandatory");
-//            } 
-//            else {
-//                JOptionPane.showMessageDialog(this, "Form is Invalid");
-//            }
-//        }
-//        else {
-//            onSaveButtonClickValidation();
-//        }
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
@@ -991,6 +985,11 @@ public class CreateJPanel extends javax.swing.JPanel {
             validateForm();
         }
     }//GEN-LAST:event_txtBankAccountNumKeyPressed
+
+    private void txtEmailAddrKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailAddrKeyPressed
+        // TODO add your handling code here:
+        validateForm();
+    }//GEN-LAST:event_txtEmailAddrKeyPressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSave;

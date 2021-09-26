@@ -375,12 +375,13 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblEmailAddr">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Email Address:"/>
+        <Property name="text" type="java.lang.String" value="Email Address*:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtEmailAddr">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEmailAddrActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtEmailAddrKeyPressed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblSSNNum">
